@@ -85,67 +85,6 @@ displaySqauer(square)
 
 //--------------------------------------------------------------------------------------//
 
-//Function currying - a function getting one argument at a time and expects a new argument for another function
-// f(a,b) -> f(a)(b) - created by chaing the one function inside another using closures
-//Used for: If use pass same param again and again
-function f(a) {
-    return function(b){
-        console.log(a, b)
-    }
-}
-
-console.log(f(2)) //returns function
-console.log(f(2)(3)) //2, 3
-
-//2.
-function sum(a){
-    return function(b){
-        return function(c){
-            return a+b+c
-        }
-    }
-}
-console.log(sum(2)) //returns 
-
-//3.
-function evaluate(operation){
-    return function(a){
-        return function(b){
-            if(operation == "add"){
-                return a + b
-            }
-            else if(operation == "sub"){
-                
-                return a - b
-            }
-            else if(operation == "mul"){
-                return a * b
-            }
-            else if(operation == "div"){
-                return a / b
-            }
-        }
-    }
-}
-
-console.log("ADD", evaluate("add")(3)(4))
-
-let mul  = evaluate("mul")
-console.log("MUL",mul(3)(4))
-
-//Infinite currying
-function infiniteSum(a){
-    return function(b){
-        if (b) return infiniteSum(a+b);
-        else return a
-    }
-}
-
-console.log("Infinite Curry",infiniteSum(2)()) //returns 2
-console.log("Infinite Curry",infiniteSum(2)(3)) //return a function
-console.log("Infinite Curry",infiniteSum(2)(3)())//5
-
-
 //Closure - Ability of the function to access variable out of the scope.
 //Closure are created everytime the functions are created
 for(let i =0; i<5; i++){
